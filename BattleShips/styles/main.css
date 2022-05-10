@@ -1,3 +1,7 @@
+*{
+    overflow: hidden;
+}
+
 #grid-container{
     height: 700px;
     width: 700px;
@@ -25,6 +29,15 @@
     background-color: rgba(255, 0, 0, 0.6);
     transition: 0.5s;
     color: white
+}
+.cell-ship-shot{
+    background-color: rgba(255, 0, 0, 0.9);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #confirm{
     width: 250px;

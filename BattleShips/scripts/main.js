@@ -6,7 +6,7 @@ function init(){
     let confirm = document.getElementById("confirm");
     let btn_yes = document.getElementById("conf_yes");
     let btn_no = document.getElementById("conf_no");
-    let conf_text = documnt.getElementById("conf_text");
+    let conf_text = document.getElementById("conf_text");
 
 
 
@@ -26,16 +26,23 @@ function init(){
     }
 
     for (let i = 0; i < cells.length; i++) {
-        cells[i].addEventListener("click", e => {
+        cells[i].addEventListener("click", function(event) {
             confirm.style.right = 20 + "%";
-            conf_text.innerText = "Confirm: " + e.target.id;
+            conf_text.innerText = "Confirm: " + event.target.id;
             btn_yes.addEventListener("click", element => {
-                alert("You just clicked" + e.target.id);
                 confirm.style.right = 3 + "%";
+                event.target.removeEventListener("click",arguments.callee,false)
+                event.target.id = "";
+                event.target.innerText = "";
+                event.target.classList.remove("cell");
+                event.target.classList.add("cell-ship-shot");
+                event = null;
             })
+            /*
             btn_no.addEventListener("click", element => {
                 confirm.style.right = 3 + "%";
             })
+            */
         })
     }
 
