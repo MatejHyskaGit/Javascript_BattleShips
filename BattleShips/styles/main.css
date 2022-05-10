@@ -5,8 +5,8 @@
     left: 30%;
     top: 15%;
     display: grid;
-    grid-template-columns: repeat(7, 100px);
-    grid-template-rows: repeat(7, 100px);
+    grid-template-columns: repeat(10, 70px);
+    grid-template-rows: repeat(10, 70px);
 }
 .cell{
     background-color: gray;
@@ -25,4 +25,16 @@
     background-color: rgba(255, 0, 0, 0.6);
     transition: 0.5s;
     color: white
+}
+#confirm{
+    width: 250px;
+    height: 100px;
+    position: absolute;
+    right: 3%;
+    transform: translateX(350px);
+    top: 40%;
+    background-color: lightgray;
+    border-radius: 10%;
+    text-align: center;
+    transition: 1s;
 }
