@@ -1,12 +1,16 @@
 function init(){
     //vars
-    let cells = document.getElementsByClassName("cell");
+    const cells = document.getElementsByClassName("cell");
     let grid = document.getElementById("grid-container");
     let letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-    let confirm = document.getElementById("confirm");
-    let btn_yes = document.getElementById("conf_yes");
-    let btn_no = document.getElementById("conf_no");
-    let conf_text = document.getElementById("conf_text");
+    let ship_container = document.getElementById("ship-container");
+    let i_container = document.getElementById("I-ship-container");
+    let square_container = document.getElementById("square-ship-container");
+    let l_container = document.getElementById("l-ship-container");
+    let lightning_container = document.getElementById("lightning-ship-container");
+    let flexcheck = document.getElementById("flexCheckDefault")
+    let i_placing = false
+    let square_placing = false
 
 
 
@@ -14,58 +18,107 @@ function init(){
 
 
     //actions
+    
     for (let index = 0; index < 10; index++) {
         let letter = letters[index];
         for (let i = 1; i < 11; i++) {
             let element = document.createElement("div");
             element.classList.add("cell");
+            element.classList.add("cell-alive");
             element.innerText = letter + i;
-            element.id = letter + i;
+            element.id = "" + index + (i-1);
             grid.appendChild(element);
         }
     }
 
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener("click", function(event) {
-            confirm.style.right = 20 + "%";
-            conf_text.innerText = "Confirm: " + event.target.id;
-            btn_yes.addEventListener("click", element => {
-                confirm.style.right = 3 + "%";
-                event.target.removeEventListener("click",arguments.callee,false)
-                event.target.id = "";
+            if(i_placing == true){
+                let hover = document.getElementsByClassName("cell-hover")
+                for (let i = 0; i < hover.length; i++) {
+                    hover[i].classList.remove("cell_hover")
+                    if(i_placing){
+                        hover[i].classList.add("cell-ship-i")
+                    }
+                    if(i == hover.length-1){
+                        i_placing = false;
+                        i_container.remove();
+                    }
+                }
+            }
+            else{
+                if(event.target.innerText != ""){
+                    alert("You shot" + event.target.id)
+                }
                 event.target.innerText = "";
-                event.target.classList.remove("cell");
+                event.target.classList.remove("cell-alive");
                 event.target.classList.add("cell-ship-shot");
-                event = null;
-            })
-            /*
-            btn_no.addEventListener("click", element => {
-                confirm.style.right = 3 + "%";
-            })
-            */
+            }
+        })
+        cells[i].addEventListener("mouseover", function(event){
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].classList.remove("cell-hover")
+            }
+            if(i_placing == true){
+                let eid = parseInt(event.target.id)
+                console.log(eid)
+                cells[eid].classList.add("cell-hover")
+                if(cells[eid + 10] == undefined){
+                    cells[eid - 10].classList.add("cell-hover")
+                    cells[eid - 20].classList.add("cell-hover")
+                    cells[eid - 30].classList.add("cell-hover")
+                }
+                else if(cells[eid + 20] == undefined){
+                    cells[eid - 10].classList.add("cell-hover")
+                    cells[eid - 20].classList.add("cell-hover")
+                    cells[eid + 10].classList.add("cell-hover")
+                }
+                else if(cells[eid + 30] == undefined){
+                    cells[eid - 10].classList.add("cell-hover")
+                    cells[eid + 10].classList.add("cell-hover")
+                    cells[eid + 20].classList.add("cell-hover")
+                }
+                else{
+                    cells[eid + 10].classList.add("cell-hover")
+                    cells[eid + 20].classList.add("cell-hover")
+                    cells[eid + 30].classList.add("cell-hover")
+                }
+            }
         })
     }
 
-/*
-    for (let index = 0; index < 100; index++) {
-        let element = document.createElement("div");
-        element.classList.add("cell");
-        
-        grid.appendChild(element);
-        
-    }
-*/
+
+    //generate ship containers
+
+    i_container.addEventListener("click", function(event){
+        if(i_placing == false){
+            i_placing = true
+        }
+        else{
+            i_placing = false
+        }
+    })
 
 
-
-
-
-
-
-
-
-
-
-
+    square_container.addEventListener("click", function(event){
+        if(square_placing == false){
+            square_placing = true
+        }
+        else{
+            square_placing = false
+        }
+    })
 }
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", init)
