@@ -27,21 +27,21 @@
 }
 .cell-alive:hover{
     background-color: rgba(255, 0, 0, 0.6);
-    transition: 0.5s;
+
     color: white
 }
 .cell-hover{
     background-color: rgba(255, 0, 0, 0.6);
-    transition: 0.5s;
+
     color: white
-}
-.cell-ship{
-    background-color: lime;
-    color: black;
-    font-weight: bold;
 }
 .cell-ship-i{
     background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-square{
+    background-color: pink;
     color: black;
     font-weight: bold;
 }
@@ -80,7 +80,7 @@
     background-color: yellow;
 }
 #square-ship-container{
-    background-color: red;
+    background-color: pink;
 }
 #l-ship-container{
     background-color: blue;

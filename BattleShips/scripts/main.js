@@ -33,16 +33,23 @@ function init(){
 
     for (let i = 0; i < cells.length; i++) {
         cells[i].addEventListener("click", function(event) {
-            if(i_placing == true){
+            if(i_placing || square_placing/* || l_placing || light_placing*/){
                 let hover = document.getElementsByClassName("cell-hover")
                 for (let i = 0; i < hover.length; i++) {
                     hover[i].classList.remove("cell_hover")
                     if(i_placing){
                         hover[i].classList.add("cell-ship-i")
                     }
-                    if(i == hover.length-1){
+                    if(square_placing){
+                        hover[i].classList.add("cell-ship-square")
+                    }
+                    if(i == hover.length-1 && i_placing == true){
                         i_placing = false;
                         i_container.remove();
+                    }
+                    if(i == hover.length-1 && square_placing == true){
+                        square_placing = false;
+                        square_container.remove();
                     }
                 }
             }
@@ -59,10 +66,11 @@ function init(){
             for (let i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("cell-hover")
             }
+            let eid = parseInt(event.target.id)
+            let idnum2 = event.target.id[1];
+            console.log(idnum2)
+            cells[eid].classList.add("cell-hover")
             if(i_placing == true){
-                let eid = parseInt(event.target.id)
-                console.log(eid)
-                cells[eid].classList.add("cell-hover")
                 if(cells[eid + 10] == undefined){
                     cells[eid - 10].classList.add("cell-hover")
                     cells[eid - 20].classList.add("cell-hover")
@@ -82,6 +90,29 @@ function init(){
                     cells[eid + 10].classList.add("cell-hover")
                     cells[eid + 20].classList.add("cell-hover")
                     cells[eid + 30].classList.add("cell-hover")
+                }
+            }
+
+            else if(square_placing == true){
+                if(cells[eid + 10] == undefined && cells[eid + 1] == undefined){
+                    cells[eid - 10].classList.add("cell-hover")
+                    cells[eid - 1].classList.add("cell-hover")
+                    cells[eid - 11].classList.add("cell-hover")
+                }
+                else if(cells[eid + 10] == undefined){
+                    cells[eid - 10].classList.add("cell-hover")
+                    cells[eid + 1].classList.add("cell-hover")
+                    cells[eid - 9].classList.add("cell-hover")
+                }
+                else if(idnum2 == "9"){
+                    cells[eid - 1].classList.add("cell-hover")
+                    cells[eid + 9].classList.add("cell-hover")
+                    cells[eid + 10].classList.add("cell-hover")
+                }
+                else{
+                    cells[eid + 10].classList.add("cell-hover")
+                    cells[eid + 1].classList.add("cell-hover")
+                    cells[eid + 11].classList.add("cell-hover")
                 }
             }
         })
