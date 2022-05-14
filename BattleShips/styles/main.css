@@ -1,5 +1,6 @@
 *{
     overflow: hidden;
+    background-color: rgb(99, 84, 143)
 }
 
 #grid-container{
@@ -25,14 +26,8 @@
     -ms-user-select: none;
     user-select: none;
 }
-.cell-alive:hover{
-    background-color: rgba(255, 0, 0, 0.6);
-
-    color: white
-}
 .cell-hover{
     background-color: rgba(255, 0, 0, 0.6);
-
     color: white
 }
 .cell-ship-i{
@@ -40,10 +35,36 @@
     color: black;
     font-weight: bold;
 }
+.cell-ship-i:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white
+}
+.cell-ship-l{
+    background-color: blue;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-l:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white
+}
 .cell-ship-square{
     background-color: pink;
     color: black;
     font-weight: bold;
+}
+.cell-ship-square:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white
+}
+.cell-ship-light{
+    background-color: green;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-light:hover{
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white
 }
 .cell-ship-shot{
     background-color: rgba(255, 0, 0, 0.9);
