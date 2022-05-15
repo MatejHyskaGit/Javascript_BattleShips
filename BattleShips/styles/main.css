@@ -4,14 +4,14 @@
 }
 
 #grid-container{
-    height: 700px;
-    width: 700px;
+    height: 600px;
+    width: 600px;
     position: absolute;
-    left: 30%;
+    left: 20%;
     top: 15%;
     display: grid;
-    grid-template-columns: repeat(10, 70px);
-    grid-template-rows: repeat(10, 70px);
+    grid-template-columns: repeat(10, 60px);
+    grid-template-rows: repeat(10, 60px);
 }
 .cell{
     background-color: gray;
@@ -67,7 +67,7 @@
     color: white
 }
 .cell-ship-shot{
-    background-color: rgba(255, 0, 0, 0.9);
+    background-color: rgba(255, 0, 0, 0.6);
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -75,23 +75,14 @@
     -ms-user-select: none;
     user-select: none;
 }
-#confirm{
-    width: 250px;
-    height: 100px;
-    position: absolute;
-    right: 3%;
-    transform: translateX(350px);
-    top: 40%;
-    background-color: lightgray;
-    border-radius: 10%;
-    text-align: center;
-    transition: 1s;
+.cell-miss{
+    background-color: white;
 }
 #ship-container{
-    width: 150px;
-    height: 700px;
+    width: 120px;
+    height: 500px;
     position: absolute;
-    left: 10%;
+    left: 5%;
     top: 15%;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -108,4 +99,11 @@
 }
 #lightning-ship-container{
     background-color: green;
+}
+#info-text{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    left: 50%;
+    top: 5%;
 }

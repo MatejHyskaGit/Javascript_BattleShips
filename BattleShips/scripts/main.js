@@ -12,6 +12,7 @@ function init(){
     let square_placing = false
     let l_placing = false
     let light_placing = false
+    let info = document.getElementById("info-text");
 
 
 
@@ -20,13 +21,12 @@ function init(){
 
 
     //actions
-    
+    console.log(window.location)
     for (let index = 0; index < 10; index++) {
         let letter = letters[index];
         for (let i = 1; i < 11; i++) {
             let element = document.createElement("div");
             element.classList.add("cell");
-            element.classList.add("cell-alive");
             element.innerText = letter + i;
             element.id = "" + index + (i-1);
             grid.appendChild(element);
@@ -40,49 +40,155 @@ function init(){
                 for (let i = 0; i < hover.length; i++) {
                     hover[i].classList.remove("cell_hover")
                     if(i_placing){
-                        hover[i].classList.add("cell-ship-i")
+                        if(hover[i].classList.contains("cell-ship-l") == false && hover[i].classList.contains("cell-ship-square") == false && hover[i].classList.contains("cell-ship-light") == false){
+                            hover[i].classList.add("cell-ship-i")
+                        }
                     }
                     if(square_placing){
-                        hover[i].classList.add("cell-ship-square")
+                        if(hover[i].classList.contains("cell-ship-l") == false && hover[i].classList.contains("cell-ship-i") == false && hover[i].classList.contains("cell-ship-light") == false){
+                            hover[i].classList.add("cell-ship-square")
+                        }
                     }
                     if(l_placing){
-                        hover[i].classList.add("cell-ship-l")
+                        if(hover[i].classList.contains("cell-ship-square") == false && hover[i].classList.contains("cell-ship-i") == false && hover[i].classList.contains("cell-ship-light") == false){
+                            hover[i].classList.add("cell-ship-l")
+                        }
                     }
                     if(light_placing){
-                        hover[i].classList.add("cell-ship-light")
+                        if(hover[i].classList.contains("cell-ship-square") == false && hover[i].classList.contains("cell-ship-i") == false && hover[i].classList.contains("cell-ship-l") == false){
+                            hover[i].classList.add("cell-ship-light")
+                        }
                     }
+                    let i_list = document.getElementsByClassName("cell-ship-i")
+                    let square_list = document.getElementsByClassName("cell-ship-square")
+                    let l_list = document.getElementsByClassName("cell-ship-l")
+                    let light_list = document.getElementsByClassName("cell-ship-light")
                     if(i == hover.length-1 && i_placing == true){
-                        i_placing = false;
-                        i_container.remove();
+                        if(i_list.length != 4){
+                            for (let i = i_list.length; i > 0; i--) {
+                                i_list[i-1].classList.remove("cell-ship-i")
+                            }
+                        }
+                        else{
+                            for (let i = i_list.length; i > 0; i--) {
+                                i_list[i-1].classList.add("cell-ship")
+                            }
+                            i_placing = false;
+                            i_container.remove();
+                        }
                     }
                     if(i == hover.length-1 && square_placing == true){
-                        square_placing = false;
-                        square_container.remove();
+                        if(square_list.length != 4){
+                            for (let i = square_list.length; i > 0; i--) {
+                                square_list[i-1].classList.remove("cell-ship-square")
+                            }
+                        }
+                        else{
+                            for (let i = square_list.length; i > 0; i--) {
+                                square_list[i-1].classList.add("cell-ship")
+                            }
+                            square_placing = false;
+                            square_container.remove();
+                        }
                     }
                     if(i == hover.length-1 && l_placing == true){
-                        l_placing = false;
-                        l_container.remove();
+                        if(l_list.length != 5){
+                            for (let i = l_list.length; i > 0; i--) {
+                                l_list[i-1].classList.remove("cell-ship-l")
+                            }
+                        }
+                        else{
+                            for (let i = l_list.length; i > 0; i--) {
+                                l_list[i-1].classList.add("cell-ship")
+                            }
+                            l_placing = false;
+                            l_container.remove();
+                        }
                     }
                     if(i == hover.length-1 && light_placing == true){
-                        light_placing = false;
-                        light_container.remove();
+                        if(light_list.length != 4){
+                            for (let i = light_list.length; i > 0; i--) {
+                                light_list[i-1].classList.remove("cell-ship-light")
+                            }
+                        }
+                        else{
+                            for (let i = light_list.length; i > 0; i--) {
+                                light_list[i-1].classList.add("cell-ship")
+                            }
+                            light_placing = false;
+                            light_container.remove();
+                        }
                     }
                 }
             }
             else{
-                if(event.target.innerText != ""){
-                    alert("You shot" + event.target.id)
+                info.innerText = "";
+                if(ship_container.children.length == 0){
+                    let i_list = document.getElementsByClassName("cell-ship-i")
+                    let square_list = document.getElementsByClassName("cell-ship-square")
+                    let l_list = document.getElementsByClassName("cell-ship-l")
+                    let light_list = document.getElementsByClassName("cell-ship-light")
+                    let ship_list = document.getElementsByClassName("cell-ship")
+
+                    if(event.target.innerText != ""){
+                        //alert("You shot " + event.target.id)
+                        //console.log(event.target)
+                    }
+                    
+                    if(event.target.classList.contains("cell-ship")){
+                        event.target.classList.add("cell-ship-shot");
+                        event.target.classList.remove("cell-ship")
+                        console.log(ship_list.length);
+                        if(event.target.classList.contains("cell-ship-i")){
+                            event.target.classList.remove("cell-ship-i")
+                            console.log(i_list.length)
+                            if(i_list.length == 0){
+                                info.innerText = "You sunk a Battleship!";
+                            }
+                        }
+                        if(event.target.classList.contains("cell-ship-square")){
+                            event.target.classList.remove("cell-ship-square")
+                            console.log(square_list.length)
+                            if(square_list.length == 0){
+                                info.innerText = "You sunk a Base ship!";
+                            }
+                        }
+                        if(event.target.classList.contains("cell-ship-l")){
+                            event.target.classList.remove("cell-ship-l")
+                            console.log(l_list.length)
+                            if(l_list.length == 0){
+                                info.innerText = "You sunk a Carrier!";
+                            }
+                        }
+                        if(event.target.classList.contains("cell-ship-light")){
+                            event.target.classList.remove("cell-ship-light")
+                            console.log(light_list.length)
+                            if(light_list.length == 0){
+                                info.innerText = "You sunk a Cruiser!";
+                            }
+                        }
+                        if(ship_list.length == 0){
+                            info.innerText = "You win!"
+                            window.location.href = "win.html";
+                        }
+                    }
+                    else if(event.target.classList.contains("cell-ship-shot") == false){
+                        event.target.classList.add("cell-miss");
+                    }
+                    event.target.innerText = "";
                 }
-                event.target.innerText = "";
-                event.target.classList.remove("cell-alive");
-                event.target.classList.add("cell-ship-shot");
+                else{
+                    info.innerText = "You must place down all you ships first!"
+                }
             }
         })
         cells[i].addEventListener("mouseover", function(event){
             for (let i = 0; i < cells.length; i++) {
                 cells[i].classList.remove("cell-hover")
             }
-            event.target.classList.add("cell-hover")
+            if(event.target.classList.contains("cell-ship-shot") == false){
+                event.target.classList.add("cell-hover")
+            }
             let eid = parseInt(event.target.id)
             let idnum2 = event.target.id[1];
             console.log(idnum2)
