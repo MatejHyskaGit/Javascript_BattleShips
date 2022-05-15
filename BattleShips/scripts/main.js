@@ -16,7 +16,8 @@ function init(){
     let enemy_grid = document.getElementById("enemy-grid");
     let enemy_cells = document.getElementsByClassName("cell-enemy")
     let shot_list = [];
-    let enemy_round_shots = 3;
+    var enemy_round_shots = sessionStorage.getItem("difficulty");
+    console.log(enemy_round_shots)
 
 
 
@@ -142,6 +143,7 @@ function init(){
             if(ship_container.children.length == 0){
                 if(e.target.innerText != ""){
                     e.target.innerText = "";
+                    info.innerText = "";
                     e.target.classList.add("cell-ship-shot");
                     //alert(e.target.id)
                     //console.log(parseInt(e.target.id))

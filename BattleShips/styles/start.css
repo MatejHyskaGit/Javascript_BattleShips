@@ -1,0 +1,110 @@
+*{
+    background-color: rgb(37, 37, 37);
+    -webkit-user-select: none;
+}
+#play-btn{
+    position: absolute;
+    background-color: rgb(80, 80, 80);
+    color: white;
+    border: 0px;
+    height: 100px;
+    width: 150px;
+    font-size: 50px;
+    top: 65%;
+    left: 45%;
+    transition: 1s;
+}
+.title{
+    position: absolute;
+    color: white;
+    font-size: 90px;
+    left: 37%;
+    top: 5%;
+}
+.rules{
+    position: absolute;
+    color: white;
+    left: 42.5%;
+    top: 21%;
+}
+#difficult-container{
+    width: 650px;
+    height: 150px;
+    background-color: rgb(37, 37, 37);
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    top: 37%;
+    left: 32%;
+}
+.selection{
+    position: relative;
+    background-color: rgb(41, 41, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px rgb(145, 145, 145) solid;
+    color: white;
+    font-weight: bold;
+}
+#easy{
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+    transition: 1s;
+}
+#easy:hover{
+    background-color: rgba(0, 255, 0, 0.575);
+    color: rgb(51, 51, 51);
+}
+.easy-hover{
+    background-color: rgba(0, 255, 0, 0.575);
+    color: rgb(51, 51, 51);
+}
+#normal{
+    transition: 1s;
+}
+#normal:hover{
+    background-color: rgba(255, 255, 0, 0.678);
+    color: rgb(51, 51, 51);
+}
+.normal-hover{
+    background-color: rgba(255, 255, 0, 0.678);
+    color: rgb(51, 51, 51);
+}
+#hard{
+    transition: 1s;
+}
+#hard:hover{
+    background-color: rgba(255, 127.5, 0, 0.678);
+    color: rgb(51, 51, 51);
+}
+.hard-hover{
+    background-color: rgba(255, 127.5, 0, 0.678);
+    color: rgb(51, 51, 51);
+
+}
+#extreme{
+    transition: 1s;
+}
+#extreme:hover{
+    background-color: rgba(255, 0, 0, 0.678);
+    color: rgb(51, 51, 51);
+}
+.extreme-hover{
+    background-color: rgba(255, 0, 0, 0.678);
+    color: rgb(51, 51, 51);
+}
+#impossible{
+    border-right: 0px;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+    transition: 1s;
+}
+#impossible:hover{
+    background-color: rgba(255, 0, 255, 0.678);
+    color: rgb(51, 51, 51);
+}
+.impossible-hover{
+    background-color: rgba(255, 0, 255, 0.678);
+    color: rgb(51, 51, 51);
+}
