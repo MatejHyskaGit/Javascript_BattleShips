@@ -13,6 +13,29 @@
     grid-template-columns: repeat(10, 60px);
     grid-template-rows: repeat(10, 60px);
 }
+#enemy-grid{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    left: 60%;
+    top: 15%;
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-template-rows: repeat(10, 60px);
+}
+.cell-enemy{
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 .cell{
     background-color: gray;
     display: flex;
@@ -35,36 +58,20 @@
     color: black;
     font-weight: bold;
 }
-.cell-ship-i:hover{
-    background-color: rgba(255, 0, 0, 0.6);
-    color: white
-}
 .cell-ship-l{
     background-color: blue;
     color: black;
     font-weight: bold;
-}
-.cell-ship-l:hover{
-    background-color: rgba(255, 0, 0, 0.6);
-    color: white
 }
 .cell-ship-square{
     background-color: pink;
     color: black;
     font-weight: bold;
 }
-.cell-ship-square:hover{
-    background-color: rgba(255, 0, 0, 0.6);
-    color: white
-}
 .cell-ship-light{
     background-color: green;
     color: black;
     font-weight: bold;
-}
-.cell-ship-light:hover{
-    background-color: rgba(255, 0, 0, 0.6);
-    color: white
 }
 .cell-ship-shot{
     background-color: rgba(255, 0, 0, 0.6);
