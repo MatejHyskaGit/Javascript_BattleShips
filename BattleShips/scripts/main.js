@@ -17,7 +17,7 @@ function init(){
     let enemy_cells = document.getElementsByClassName("cell-enemy")
     let shot_list = [];
     var enemy_round_shots = sessionStorage.getItem("difficulty");
-    console.log(enemy_round_shots)
+    //console.log(enemy_round_shots)
 
 
 
@@ -59,12 +59,15 @@ function init(){
     //console.log(i_rand)
     let enemy_i_list = [i_rand, i_rand+10, i_rand+20, i_rand+30]
     //console.log(enemy_i_list)
+    const enemy_i_list_const = enemy_i_list;
 
     //square lod generace
     let enemy_square_list = []
+    let enemy_square_list_const = []
     function gen_square(){
         let square_rand = Math.floor((Math.random() * 89));
         enemy_square_list = [square_rand, square_rand+1, square_rand+10, square_rand+11]
+        enemy_square_list_const = [square_rand, square_rand+1, square_rand+10, square_rand+11]
         if(square_rand == 9 || square_rand.toString()[1] == "9"){
             gen_square()
         }
@@ -73,6 +76,7 @@ function init(){
         }
     }
     gen_square();
+    
 
     //l lod generace
     let enemy_l_list = []
@@ -87,6 +91,7 @@ function init(){
         }
     }
     gen_l();
+    const enemy_l_list_const = enemy_l_list;
 
     //lightning lod generace
     let enemy_light_list = []
@@ -101,7 +106,11 @@ function init(){
         }
     }
     gen_light();
-
+    /*
+    if(enemy_light_list_const == null){
+        const enemy_light_list_const = enemy_light_list;
+    }
+*/
     function GetIndexOf(item, list){
         for (let i = 0; i < list.length; i++) {
             //console.log(i)
@@ -150,7 +159,12 @@ function init(){
                     //console.log(enemy_square_list)
                     if(IsItemInList(parseInt(e.target.id), enemy_square_list)){
                         enemy_square_list.splice(GetIndexOf(parseInt(e.target.id), enemy_square_list), 1);
+                        console.log(enemy_square_list_const)
                         if(enemy_square_list.length == 0){
+                            for (let i = 0; i < enemy_square_list_const.length; i++) {
+                                enemy_cells[enemy_square_list_const[i]].classList.add("ship-sunk")
+                                enemy_cells[enemy_square_list_const[i]].classList.remove("cell-ship-shot")
+                            }
                             info.innerText = "You sunk a Base Ship!"
                         }
                     }
@@ -186,7 +200,7 @@ function init(){
                 }
             }
             else{
-                info.innerText = "You must place all your ships!"
+                info.innerText = "You must place all your ships first!"
             }
         })
     }
@@ -289,9 +303,9 @@ function init(){
             }
         })
         function enemy_shoot(){
-            let shoot_rand = Math.floor((Math.random() * 99));
-            console.log(shoot_rand)
-            console.log(shot_list)
+            let shoot_rand = Math.floor((Math.random() * 100));
+            //console.log(shoot_rand)
+            //console.log(shot_list)
             if(IsItemInList(shoot_rand, shot_list)){
                 enemy_shoot();
             }
@@ -484,8 +498,6 @@ function init(){
         })
     }
 
-
-    //generate ship containers
 
     i_container.addEventListener("click", function(event){
         if(i_placing == false){

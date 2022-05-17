@@ -7,9 +7,11 @@ function init(){
     let impossible = document.getElementById("impossible")
     let btn = document.getElementById("play-btn")
     let difficulty = 0;
+    let info = document.getElementById("info")
 
 
     easy.addEventListener("click", e => {
+        info.innerText = ""
         normal.classList.remove("normal-hover");
         hard.classList.remove("hard-hover");
         extreme.classList.remove("extreme-hover");
@@ -19,6 +21,7 @@ function init(){
         sessionStorage.setItem("difficulty", difficulty);
     })
     normal.addEventListener("click", e => {
+        info.innerText = ""
         normal.classList.add("normal-hover");
         hard.classList.remove("hard-hover");
         extreme.classList.remove("extreme-hover");
@@ -28,6 +31,7 @@ function init(){
         sessionStorage.setItem("difficulty", difficulty);
     })
     hard.addEventListener("click", e => {
+        info.innerText = ""
         normal.classList.remove("normal-hover");
         hard.classList.add("hard-hover");
         extreme.classList.remove("extreme-hover");
@@ -37,6 +41,7 @@ function init(){
         sessionStorage.setItem("difficulty", difficulty);
     })
     extreme.addEventListener("click", e => {
+        info.innerText = ""
         normal.classList.remove("normal-hover");
         hard.classList.remove("hard-hover");
         extreme.classList.add("extreme-hover");
@@ -46,6 +51,7 @@ function init(){
         sessionStorage.setItem("difficulty", difficulty);
     })
     impossible.addEventListener("click", e => {
+        info.innerText = ""
         normal.classList.remove("normal-hover");
         hard.classList.remove("hard-hover");
         extreme.classList.remove("extreme-hover");
@@ -57,7 +63,7 @@ function init(){
     btn.addEventListener("click", e => {
         if(difficulty == 0){
             e.preventDefault();
-            alert("Please select a difficulty before starting.")
+            info.innerText = "Please select a difficulty before playing."
         }
     })
     btn.addEventListener("mouseover", e => {
