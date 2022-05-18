@@ -55,7 +55,7 @@
     border: 1px solid black;
 }
 .cell-hover{
-    background-color: rgba(255, 0, 0, 0.6);
+    background-color: rgba(255, 0, 255, 0.6);
     color: white
 }
 .cell-ship-i{
@@ -126,33 +126,26 @@
 .ally-board-numbers{
     color: white;
     position: absolute;
-    top: 12%;
+    display: flex;
+    font-weight: bold;
     left: 21.5%;
-    letter-spacing: 50px;
-    font-weight: bold;
-}
-.ally-0{
-    color: white;
-    position: absolute;
     top: 12%;
-    left: 49.72%;
-    font-weight: bold;
+    text-align: center;
+}
+.ally-board-numbers > div{
+    padding-right: 50px;
 }
 .enemy-board-numbers{
     color: white;
     position: absolute;
-    top: 12%;
-    left: 61.5%;
-    letter-spacing: 50px;
+    display: flex;
     font-weight: bold;
+    left: 61.5%;
+    top: 12%;
     text-align: center;
 }
-.enemy-0{
-    color: white;
-    position: absolute;
-    top: 12%;
-    left: 89.72%;
-    font-weight: bold;
+.enemy-board-numbers > div{
+    padding-right: 50px;
 }
 .ally-board-letters{
     color: white;
@@ -160,7 +153,6 @@
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    letter-spacing: 50px;
     left: 18.5%;
     top: 17%;
     text-align: center;
@@ -201,4 +193,7 @@
 .ship-sunk{
     background-color: black;
     border: 2px solid white;
+}
+.ship-sunk-near{
+    background-color: gray;
 }
