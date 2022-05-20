@@ -1,0 +1,199 @@
+*{
+    overflow: hidden;
+    background-color: rgb(71, 71, 71);
+    -webkit-user-select: none;
+}
+
+#grid-container{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-template-rows: repeat(10, 60px);
+    border: 1px solid black;
+}
+#enemy-grid{
+    height: 600px;
+    width: 600px;
+    position: absolute;
+    left: 60%;
+    top: 15%;
+    display: grid;
+    grid-template-columns: repeat(10, 60px);
+    grid-template-rows: repeat(10, 60px);
+    border: 1px solid black;
+}
+.cell-enemy{
+    background-color: rgb(0, 140, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 140, 255);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid black;
+}
+.cell{
+    background-color: rgb(0, 140, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(0, 140, 255);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid black;
+}
+.cell-hover{
+    background-color: rgba(255, 0, 255, 0.6);
+    color: white
+}
+.cell-ship-i{
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-l{
+    background-color: blue;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-square{
+    background-color: pink;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-light{
+    background-color: green;
+    color: black;
+    font-weight: bold;
+}
+.cell-ship-shot{
+    background-color: rgba(255, 0, 0, 0.6);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.cell-miss{
+    background-color: white;
+}
+#ship-container{
+    width: 120px;
+    height: 500px;
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 20px;
+}
+#I-ship-container{
+    background-color: yellow;
+    cursor: pointer;
+}
+#square-ship-container{
+    background-color: pink;
+    cursor: pointer;
+}
+#l-ship-container{
+    background-color: blue;
+    cursor: pointer;
+}
+#lightning-ship-container{
+    background-color: green;
+    cursor: pointer;
+}
+#info-text{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    left: 50%;
+    top: 5%;
+}
+.ally-board-numbers{
+    color: white;
+    position: absolute;
+    display: flex;
+    font-weight: bold;
+    left: 21.5%;
+    top: 12%;
+    text-align: center;
+}
+.ally-board-numbers > div{
+    padding-right: 50px;
+}
+.enemy-board-numbers{
+    color: white;
+    position: absolute;
+    display: flex;
+    font-weight: bold;
+    left: 61.5%;
+    top: 12%;
+    text-align: center;
+}
+.enemy-board-numbers > div{
+    padding-right: 50px;
+}
+.ally-board-letters{
+    color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    left: 18.5%;
+    top: 17%;
+    text-align: center;
+}
+.ally-board-letters > div{
+    padding-bottom: 35px;
+}
+.enemy-board-letters{
+    color: white;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    letter-spacing: 50px;
+    left: 58.5%;
+    top: 17%;
+    text-align: center;
+}
+.enemy-board-letters > div{
+    padding-bottom: 35px;
+}
+.enemy-title{
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    position: absolute;
+    top: 6.5%;
+    left: 70%;
+    height: 40px;
+}
+.ally-title{
+    color: rgb(9, 255, 0);
+    font-weight: bold;
+    position: absolute;
+    top: 6.5%;
+    left: 31%;
+    height: 40px;
+}
+.ship-sunk{
+    background-color: black;
+    border: 2px solid white;
+}
+.ship-sunk-near{
+    background-color: gray;
+}
