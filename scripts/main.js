@@ -12,6 +12,10 @@ function init(){
         enemy_round_shots = 10
         info.innerText = "Have fun, you cheater!"
     }
+    let ship_show_i = document.getElementById("ship-show-i");
+    let ship_show_square = document.getElementById("ship-show-square");
+    let ship_show_l = document.getElementById("ship-show-l");
+    let ship_show_light = document.getElementById("ship-show-light");
     //console.log(enemy_round_shots)
 
 
@@ -307,13 +311,13 @@ function init(){
         let ship_list = document.getElementsByClassName("cell-ship")
         
         if(cells[shoot_rand].classList.contains("cell-ship")){
-            cells[shoot_rand].classList.add("cell-ship-shot");
+            cells[shoot_rand].classList.add("cell-ship-shot-ally");
             cells[shoot_rand].classList.remove("cell-ship")
             if(cells[shoot_rand].classList.contains("cell-ship-i")){
                 cells[shoot_rand].classList.remove("cell-ship-i")
                 if(i_list.length == 0){
                     for (let i = 0; i < ally_i_list_const.length; i++) {
-                        cells[ally_i_list_const[i]].classList.add("ship-sunk")
+                        cells[ally_i_list_const[i]].classList.add("ship-sunk-ally")
                     }
                     info.innerText = "Enemy sunk a Battleship!";
                 }
@@ -322,7 +326,7 @@ function init(){
                 cells[shoot_rand].classList.remove("cell-ship-square")
                 if(square_list.length == 0){
                     for (let i = 0; i < ally_square_list_const.length; i++) {
-                        cells[ally_square_list_const[i]].classList.add("ship-sunk")
+                        cells[ally_square_list_const[i]].classList.add("ship-sunk-ally")
                     }
                     info.innerText = "Enemy sunk a Base ship!";
                 }
@@ -331,7 +335,7 @@ function init(){
                 cells[shoot_rand].classList.remove("cell-ship-l")
                 if(l_list.length == 0){
                     for (let i = 0; i < ally_l_list_const.length; i++) {
-                        cells[ally_l_list_const[i]].classList.add("ship-sunk")
+                        cells[ally_l_list_const[i]].classList.add("ship-sunk-ally")
                     }
                     info.innerText = "Enemy sunk a Carrier!";
                 }
@@ -340,7 +344,7 @@ function init(){
                 cells[shoot_rand].classList.remove("cell-ship-light")
                 if(light_list.length == 0){
                     for (let i = 0; i < ally_light_list_const.length; i++) {
-                        cells[ally_light_list_const[i]].classList.add("ship-sunk")
+                        cells[ally_light_list_const[i]].classList.add("ship-sunk-ally")
                     }
                     info.innerText = "Enemy sunk a Cruiser!";
                 }
@@ -350,7 +354,7 @@ function init(){
                 window.location.href = "lose.html";
             }
         }
-        else if(cells[shoot_rand].classList.contains("cell-ship-shot") == false){
+        else if(cells[shoot_rand].classList.contains("cell-ship-shot-ally") == false){
             cells[shoot_rand].classList.add("cell-miss");
         }
         cells[shoot_rand].innerText = "";
@@ -392,6 +396,7 @@ function init(){
                             }
                         }
                         info.innerText = "You sunk a Base Ship!"
+                        ship_show_square.remove();
                     }
                 }
                 else if(IsItemInList(parseInt(e.target.id), enemy_i_list)){
@@ -414,6 +419,7 @@ function init(){
                             }
                         }
                         info.innerText = "You sunk a Battleship!"
+                        ship_show_i.remove();
                     }
                 }
                 else if(IsItemInList(parseInt(e.target.id), enemy_l_list)){
@@ -436,6 +442,7 @@ function init(){
                             }
                         }
                         info.innerText = "You sunk a Carrier!"
+                        ship_show_l.remove();
                     }
                 }
                 else if(IsItemInList(parseInt(e.target.id), enemy_light_list)){
@@ -458,6 +465,7 @@ function init(){
                             }
                         }
                         info.innerText = "You sunk a Cruiser!"
+                        ship_show_light.remove();
                     }
                 }
                 else{
@@ -466,6 +474,7 @@ function init(){
                 if(enemy_square_list.length == 0 && enemy_i_list.length == 0 && enemy_l_list.length == 0 && enemy_light_list.length == 0){
                     info.innerText = "You win!"
                     window.location.href = "win.html";
+                    sessionStorage.setItem("win", true);
                 }
                 //console.log(enemy_square_list)
                 for (let i = 0; i < enemy_round_shots; i++) {

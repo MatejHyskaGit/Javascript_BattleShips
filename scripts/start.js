@@ -19,6 +19,8 @@ function init(){
         easy.classList.add("easy-hover");
         difficulty = 1;
         sessionStorage.setItem("difficulty", difficulty);
+        info.style.left = 40.5 + "%";
+        info.innerText = "Every time you shoot, enemy will shoot 1 time"
     })
     normal.addEventListener("click", e => {
         info.innerText = ""
@@ -29,6 +31,8 @@ function init(){
         easy.classList.remove("easy-hover");
         difficulty = 2;
         sessionStorage.setItem("difficulty", difficulty);
+        info.style.left = 40.5 + "%";
+        info.innerText = "Every time you shoot, enemy will shoot 2 times"
     })
     hard.addEventListener("click", e => {
         info.innerText = ""
@@ -39,6 +43,8 @@ function init(){
         easy.classList.remove("easy-hover");
         difficulty = 3;
         sessionStorage.setItem("difficulty", difficulty);
+        info.style.left = 40.5 + "%";
+        info.innerText = "Every time you shoot, enemy will shoot 3 times"
     })
     extreme.addEventListener("click", e => {
         info.innerText = ""
@@ -49,6 +55,8 @@ function init(){
         easy.classList.remove("easy-hover");
         difficulty = 4;
         sessionStorage.setItem("difficulty", difficulty);
+        info.style.left = 40.5 + "%";
+        info.innerText = "Every time you shoot, enemy will shoot 4 times"
     })
     impossible.addEventListener("click", e => {
         info.innerText = ""
@@ -59,6 +67,8 @@ function init(){
         easy.classList.remove("easy-hover");
         difficulty = 5;
         sessionStorage.setItem("difficulty", difficulty);
+        info.style.left = 40.5 + "%";
+        info.innerText = "Every time you shoot, enemy will shoot 5 times"
     })
     btn.addEventListener("click", e => {
         if(difficulty == 0){

@@ -8,26 +8,30 @@
     height: 600px;
     width: 600px;
     position: absolute;
-    left: 20%;
+    left: 10%;
     top: 15%;
     display: grid;
     grid-template-columns: repeat(10, 60px);
     grid-template-rows: repeat(10, 60px);
     border: 1px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }
 #enemy-grid{
     height: 600px;
     width: 600px;
     position: absolute;
-    left: 60%;
+    left: 50%;
     top: 15%;
     display: grid;
     grid-template-columns: repeat(10, 60px);
     grid-template-rows: repeat(10, 60px);
     border: 1px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
 }
 .cell-enemy{
-    background-color: rgb(0, 140, 255);
+    background-image: url("../images/cell.png");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,10 +42,9 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid black;
 }
 .cell{
-    background-color: rgb(0, 140, 255);
+    background-image: url("../images/cell.png");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -52,34 +55,18 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid black;
+}
+.cell-ship{
+    background-image: url("../images/cell-ship.png");
+}
+.cell-ship-shot-ally{
+    background-image: url("../images/cell-ship-shot-ally.png");
 }
 .cell-hover{
-    background-color: rgba(255, 0, 255, 0.6);
-    color: white
-}
-.cell-ship-i{
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
-}
-.cell-ship-l{
-    background-color: blue;
-    color: black;
-    font-weight: bold;
-}
-.cell-ship-square{
-    background-color: pink;
-    color: black;
-    font-weight: bold;
-}
-.cell-ship-light{
-    background-color: green;
-    color: black;
-    font-weight: bold;
+    background-image: url("../images/cell-hover.png");
 }
 .cell-ship-shot{
-    background-color: rgba(255, 0, 0, 0.6);
+    background-image: url("../images/cell-ship-shot.png");
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -88,17 +75,7 @@
     user-select: none;
 }
 .cell-miss{
-    background-color: white;
-}
-#ship-container{
-    width: 120px;
-    height: 500px;
-    position: absolute;
-    left: 5%;
-    top: 15%;
-    display: grid;
-    grid-template-rows: repeat(4, 1fr);
-    row-gap: 20px;
+    background-image: url("../images/cell-miss.png");
 }
 #I-ship-container{
     background-color: yellow;
@@ -120,15 +97,16 @@
     position: absolute;
     color: white;
     font-weight: bold;
-    left: 50%;
-    top: 5%;
+    left: 41%;
+    top: 90%;
+    font-size: large;
 }
 .ally-board-numbers{
     color: white;
     position: absolute;
     display: flex;
     font-weight: bold;
-    left: 21.5%;
+    left: 11.5%;
     top: 12%;
     text-align: center;
 }
@@ -140,7 +118,7 @@
     position: absolute;
     display: flex;
     font-weight: bold;
-    left: 61.5%;
+    left: 51.5%;
     top: 12%;
     text-align: center;
 }
@@ -153,7 +131,7 @@
     display: flex;
     flex-direction: column;
     font-weight: bold;
-    left: 18.5%;
+    left: 8.5%;
     top: 17%;
     text-align: center;
 }
@@ -167,7 +145,7 @@
     flex-direction: column;
     font-weight: bold;
     letter-spacing: 50px;
-    left: 58.5%;
+    left: 48.5%;
     top: 17%;
     text-align: center;
 }
@@ -179,7 +157,7 @@
     font-weight: bold;
     position: absolute;
     top: 6.5%;
-    left: 70%;
+    left: 60%;
     height: 40px;
 }
 .ally-title{
@@ -187,13 +165,47 @@
     font-weight: bold;
     position: absolute;
     top: 6.5%;
-    left: 31%;
+    left: 21%;
     height: 40px;
 }
 .ship-sunk{
-    background-color: black;
-    border: 2px solid white;
+    background-image: url("../images/ship-sunk.png")
+}
+.ship-sunk-ally{
+    background-image: url("../images/ship-sunk-ally.png")
 }
 .ship-sunk-near{
-    background-color: gray;
+    background-image: url("../images/cell-empty-confirm.png")
+}
+#ship-show{
+    position: absolute;
+    left: 88%;
+    top: 10%;
+    width: 150px;
+}
+#ship-show-i > img{
+    position: relative;
+    left: 35%;
+}
+#ship-show-square > img{
+    position: relative;
+    left: 17.5%;
+}
+#ship-show-light > img{
+    position: relative;
+    left: 17.5%;
+}
+#ship-show > div{
+    padding-bottom: 1em;
+}
+#ship-show > div > p{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.ship-show-text{
+    position: absolute;
+    color: white;
+    left: 86.5%;
+    top: 2%;
 }

@@ -1,0 +1,40 @@
+*{
+    background-color: rgb(37, 37, 37);
+    -webkit-user-select: none;
+}
+h1{
+    color: rgb(255, 0, 0);
+    position: absolute;
+    top: 5%;
+    left: 41%;
+    font-size: 80px;
+    font-weight: bold;
+}
+h2{
+    color: white;
+    position: absolute;
+    top: 18%;
+    left: 41%;
+}
+p{
+    color: white;
+    position: absolute;
+    top: 28%;
+    left: 40%;
+}
+
+
+
+.btn-again{
+    position: absolute;
+    color: rgb(37, 37, 37);
+    background-color: white;
+    font-weight: bold;
+    font-size: 35px;
+    top: 40%;
+    left: 43.7%;
+}
+.btn-again:hover{
+    color: #fff;
+    background-color: #212529;
+}
